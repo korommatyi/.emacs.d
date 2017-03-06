@@ -1,6 +1,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq js-indent-level 2)
+(setq python-indent-offset 2)
 (show-paren-mode t)
 (global-linum-mode 1)
 (setq column-number-mode t)
