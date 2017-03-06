@@ -19,6 +19,7 @@
 (package-install 'smartscan)
 (package-install 'monokai-theme)
 (package-install 'fill-column-indicator)
+(package-install 'magit)
 
 (smartscan-mode 1)
 (load-theme 'monokai t)
@@ -30,3 +31,5 @@
 (add-hook 'makrdown-mode-hook (lambda () (fci-mode 1)))
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 120))
+
+(global-set-key (kbd "C-x g") 'magit-status)
