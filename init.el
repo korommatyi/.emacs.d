@@ -38,6 +38,14 @@
 (use-package magit
   :ensure t
   :pin melpa)
+(use-package exec-path-from-shell
+  :ensure t
+  :pin melpa
+  :config (exec-path-from-shell-initialize))
+(use-package web-mode
+  :ensure t
+  :pin melpa
+  :config (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 
 (smartscan-mode 1)
 (load-theme 'monokai t)
