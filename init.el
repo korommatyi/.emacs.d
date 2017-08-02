@@ -42,8 +42,7 @@
 (use-package magit
   :ensure t
   :pin melpa
-  :config
-  (global-set-key (kbd "C-x g") 'magit-status))
+  :bind ("C-x g" . magit-status))
 (use-package exec-path-from-shell
   :ensure t
   :pin melpa
@@ -52,6 +51,13 @@
   :ensure t
   :pin melpa
   :config (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+(use-package smex
+  :ensure t
+  :pin melpa
+  :config (smex-initialize)
+  :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)
+         ("C-c C-c M-x" . execute-extended-command)))
 
 
 ;; style
@@ -81,9 +87,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
+    (smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
