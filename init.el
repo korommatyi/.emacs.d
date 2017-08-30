@@ -63,8 +63,8 @@
 (use-package web-mode
   :ensure t
   :pin melpa
+  :mode "\\.html?\\'"
   :config
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (defun my-web-mode-hook ()
     (setq web-mode-markup-indent-offset 2)
     (setq web-mode-css-indent-offset 2)
