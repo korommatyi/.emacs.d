@@ -25,32 +25,53 @@
 (package-initialize)
 (package-install 'use-package)
 (require 'use-package)
+
 (use-package scala-mode
   :ensure t
   :pin melpa-stable
   :interpreter ("scala" . scala-mode))
+
 (use-package smartscan
   :ensure t
   :pin melpa
   :config (smartscan-mode 1))
+
 (use-package monokai-theme
   :ensure t
   :pin melpa)
+
 (use-package fill-column-indicator
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :init
+  (setq-default fill-column 100)
+  (add-hook 'python-mode-hook 'fci-mode)
+  (add-hook 'markdown-mode-hook 'fci-mode)
+  (add-hook 'scala-mode-hook 'fci-mode)
+  )
+
 (use-package magit
   :ensure t
   :pin melpa
   :bind ("C-x g" . magit-status))
+
 (use-package exec-path-from-shell
   :ensure t
   :pin melpa
   :config (exec-path-from-shell-initialize))
+
 (use-package web-mode
   :ensure t
   :pin melpa
-  :config (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (defun my-web-mode-hook ()
+    (setq web-mode-markup-indent-offset 2)
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 2)
+    )
+  (add-hook 'web-mode-hook  'my-web-mode-hook))
+
 (use-package smex
   :ensure t
   :pin melpa
@@ -70,18 +91,6 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 
-(setq-default fill-column 100)
-(add-hook 'python-mode-hook (lambda () (fci-mode 1)))
-(add-hook 'makrdown-mode-hook (lambda () (fci-mode 1)))
-(add-hook 'scala-mode-hook (lambda () (fci-mode 1)))
-
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-)
-(add-hook 'web-mode-hook  'my-web-mode-hook)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
