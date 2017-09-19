@@ -80,6 +80,15 @@
          ("M-X" . smex-major-mode-commands)
          ("C-c C-c M-x" . execute-extended-command)))
 
+(use-package jedi
+  :ensure t
+  :pin melpa
+  :config
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:complete-on-dot t))
+;; don't forget to M-x jedi:install-server
+
+
 
 ;; style
 (load-theme 'monokai t)
@@ -99,7 +108,7 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
+    (jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
