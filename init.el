@@ -1,8 +1,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
-(setq js-indent-level 2)
-(setq python-indent-offset 2)
-(setq css-indent-offset 2)
+(setq standard-indent 2)
 (show-paren-mode t)
 (put 'upcase-region 'disabled nil)
 (ido-mode 1)
@@ -64,14 +62,7 @@
 (use-package web-mode
   :ensure t
   :pin melpa
-  :mode "\\.html?\\'"
-  :config
-  (defun my-web-mode-hook ()
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
-    )
-  (add-hook 'web-mode-hook  'my-web-mode-hook))
+  :mode "\\.html?\\'")
 
 (use-package smex
   :ensure t
