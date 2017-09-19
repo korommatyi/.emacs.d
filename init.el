@@ -38,7 +38,8 @@
 
 (use-package monokai-theme
   :ensure t
-  :pin melpa)
+  :pin melpa
+  :config (load-theme 'monokai t))
 
 (use-package fill-column-indicator
   :ensure t
@@ -91,7 +92,6 @@
 
 
 ;; style
-(load-theme 'monokai t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
