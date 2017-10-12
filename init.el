@@ -1,15 +1,27 @@
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq standard-indent 2)
+(setq-default
+ indent-tabs-mode nil
+ tab-width 2
+ next-screen-context-lines 27)
+
+(setq
+ standard-indent 2
+ ido-enable-flex-matching t
+ ido-everywhere t
+ inhibit-startup-message t
+ inhibit-startup-echo-area-message t
+ column-number-mode t)
+
 (show-paren-mode t)
 (put 'upcase-region 'disabled nil)
 (ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(setq inhibit-startup-message t inhibit-startup-echo-area-message t)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(global-linum-mode 1)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 
-;; rebound keys
+;; rebind keys
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (define-key global-map (kbd "M-o") 'other-window)
 
@@ -29,10 +41,15 @@
   :pin melpa-stable
   :interpreter ("scala" . scala-mode))
 
+(use-package ensime
+  :ensure t
+  :pin melpa-stable
+  :init (setq ensime-startup-notification nil))
+
 (use-package smartscan
   :ensure t
   :pin melpa
-  :config (smartscan-mode 1))
+  :config (global-smartscan-mode t))
 
 (use-package monokai-theme
   :ensure t
@@ -81,16 +98,6 @@
 ;; don't forget to M-x jedi:install-server
 
 
-
-;; style
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(global-linum-mode 1)
-(setq column-number-mode t)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,7 +106,7 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
+    (ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
