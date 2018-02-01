@@ -114,7 +114,8 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell))))
+    (ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
+ '(python-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
