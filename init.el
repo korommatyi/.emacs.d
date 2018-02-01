@@ -1,10 +1,10 @@
 (setq-default
  indent-tabs-mode nil
  tab-width 2
- next-screen-context-lines 27)
+ next-screen-context-lines 27
+ standard-indent 2)
 
 (setq
- standard-indent 2
  ido-enable-flex-matching t
  ido-everywhere t
  inhibit-startup-message t
