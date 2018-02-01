@@ -56,15 +56,15 @@
   :pin melpa
   :config (load-theme 'monokai t))
 
-(use-package fill-column-indicator
-  :ensure t
-  :pin melpa
-  :init
-  (setq-default fill-column 100)
-  (add-hook 'python-mode-hook 'fci-mode)
-  (add-hook 'markdown-mode-hook 'fci-mode)
-  (add-hook 'scala-mode-hook 'fci-mode)
-  )
+;; (use-package fill-column-indicator
+;;   :ensure t
+;;   :pin melpa
+;;   :init
+;;   (setq-default fill-column 100)
+;;   (add-hook 'python-mode-hook 'fci-mode)
+;;   (add-hook 'markdown-mode-hook 'fci-mode)
+;;   (add-hook 'scala-mode-hook 'fci-mode)
+;;   )
 
 (use-package magit
   :ensure t
