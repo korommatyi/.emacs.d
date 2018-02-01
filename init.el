@@ -97,6 +97,14 @@
   (setq jedi:complete-on-dot t))
 ;; don't forget to M-x jedi:install-server
 
+(use-package clojure-mode
+  :ensure t
+  :pin melpa)
+
+(use-package cider
+  :ensure t
+  :pin melpa)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
