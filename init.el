@@ -5,8 +5,6 @@
  standard-indent 2)
 
 (setq
- ido-enable-flex-matching t
- ido-everywhere t
  inhibit-startup-message t
  inhibit-startup-echo-area-message t
  column-number-mode t)
@@ -35,6 +33,11 @@
 (package-initialize)
 (package-install 'use-package)
 (require 'use-package)
+
+(use-package flycheck
+  :ensure t
+  :pin melpa-stable
+  :config (global-flycheck-mode))
 
 (use-package scala-mode
   :ensure t
@@ -79,7 +82,11 @@
 (use-package web-mode
   :ensure t
   :pin melpa
-  :mode "\\.html?\\'")
+  :mode "\\.html?\\'"
+  :config
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
 
 (use-package smex
   :ensure t
@@ -112,9 +119,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
+ '(ido-enable-flex-matching t)
+ '(ido-everywhere t)
+ '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
+    (flycheck ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
  '(python-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
