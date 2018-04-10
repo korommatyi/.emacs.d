@@ -34,6 +34,10 @@
 (package-install 'use-package)
 (require 'use-package)
 
+(use-package typescript-mode
+  :ensure t
+  :pin melpa-stable)
+
 (use-package flycheck
   :ensure t
   :pin melpa-stable
@@ -82,7 +86,7 @@
 (use-package web-mode
   :ensure t
   :pin melpa
-  :mode "\\.html?\\'"
+  :mode ("\\.html?\\'" "\\.js[x]?\\'")
   :config
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
@@ -119,12 +123,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
+ '(grep-find-ignored-directories
+   (quote
+    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules")))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (flycheck ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
+    (typescript-mode flycheck ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
  '(python-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
