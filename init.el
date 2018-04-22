@@ -86,7 +86,7 @@
 (use-package web-mode
   :ensure t
   :pin melpa
-  :mode ("\\.html?\\'" "\\.js[x]?\\'")
+  :mode ("\\.html?\\'" "\\.js[x]?\\'" "\\.ts[x]?\\'")
   :config
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
