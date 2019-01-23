@@ -78,10 +78,10 @@
   :pin melpa
   :bind ("C-x g" . magit-status))
 
-(use-package exec-path-from-shell
-  :ensure t
-  :pin melpa
-  :config (exec-path-from-shell-initialize))
+;; (use-package exec-path-from-shell
+;;   :ensure t
+;;   :pin melpa
+;;   :config (exec-path-from-shell-initialize))
 
 (use-package web-mode
   :ensure t
@@ -116,6 +116,22 @@
   :ensure t
   :pin melpa)
 
+(use-package dockerfile-mode
+  :ensure t
+  :pin melpa)
+
+(use-package yaml-mode
+  :ensure t
+  :pin melpa)
+
+(defun wsl-copy (start end)
+  "Copy selected text to Windows clipboard"
+  (interactive "r")
+  (shell-command-on-region start end "clip.exe"))
+
+(global-set-key
+ (kbd "C-c C-c")
+ 'wsl-copy)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -131,8 +147,9 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (typescript-mode flycheck ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
- '(python-indent-offset 2))
+    (yaml-mode dockerfile-mode typescript-mode flycheck ensime jedi smex web-mode use-package smartscan scala-mode monokai-theme magit fill-column-indicator exec-path-from-shell)))
+ '(python-indent-offset 2)
+ '(split-height-threshold 100))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
