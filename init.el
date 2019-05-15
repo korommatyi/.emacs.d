@@ -76,12 +76,13 @@
 (use-package magit
   :ensure t
   :pin melpa
-  :bind ("C-x g" . magit-status))
+  :bind (("C-x g" . magit-status)
+         ("C-c g" . magit-file-dispatch)))
 
-;; (use-package exec-path-from-shell
-;;   :ensure t
-;;   :pin melpa
-;;   :config (exec-path-from-shell-initialize))
+(use-package exec-path-from-shell
+  :ensure t
+  :pin melpa
+  :config (exec-path-from-shell-initialize))
 
 (use-package web-mode
   :ensure t
@@ -124,14 +125,14 @@
   :ensure t
   :pin melpa)
 
-(defun wsl-copy (start end)
-  "Copy selected text to Windows clipboard"
-  (interactive "r")
-  (shell-command-on-region start end "clip.exe"))
+;; (defun wsl-copy (start end)
+;;   "Copy selected text to Windows clipboard"
+;;   (interactive "r")
+;;   (shell-command-on-region start end "clip.exe"))
 
-(global-set-key
- (kbd "C-c C-c")
- 'wsl-copy)
+;; (global-set-key
+;;  (kbd "C-c C-c")
+;;  'wsl-copy)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
